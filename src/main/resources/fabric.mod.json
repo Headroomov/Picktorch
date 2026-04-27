@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "picktorch",
+  "version": "${version}",
+  "name": "Picktorch",
+  "description": "Place torches from your inventory by right-clicking blocks with a pickaxe - no hotbar switching.",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/picktorch/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "me.headroomov.picktorch.client.PicktorchDataGenerator"
+    ],
+    "client": [
+      "me.headroomov.picktorch.client.PicktorchClient"
+    ],
+    "main": [
+      "me.headroomov.picktorch.Picktorch"
+    ]
+  },
+  "mixins": [
+    "picktorch.mixins.json",
+    {
+      "config": "picktorch.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
