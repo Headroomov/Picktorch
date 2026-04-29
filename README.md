@@ -1,81 +1,55 @@
 # Picktorch
 
-Picktorch — клиентский Fabric мод, который помогает ставить факелы из инвентаря по ПКМ по блоку с киркой в руке. Переключать хотбар не нужно.
+Picktorch is a client-side Fabric mod that lets you place torches from your inventory while holding a pickaxe.
 
-Мод не добавляет новые блоки или предметы, не требует установки на сервер и работает через обычное взаимодействие Minecraft с факелом.
-
----
-
-## Что делает мод
-
-Когда вы держите кирку и нажимаете ПКМ по блоку, Picktorch ищет факел в вашем инвентаре и пытается поставить его обычным способом.
-
-Вам не нужно:
-
-- заранее класть факелы в хотбар;
-- переключаться с кирки на факел;
-- возвращаться обратно на кирку после установки.
-
-Picktorch делает это автоматически и возвращает предмет в руке обратно.
+Right-click a block with a pickaxe in your main hand, and Picktorch will try to use a torch from your inventory without making you switch hotbar slots manually.
 
 ---
 
-## Как пользоваться
+## Features
 
-1. Установите Picktorch на Fabric клиент.
-2. Положите факелы в инвентарь.
-3. Возьмите кирку в основную руку.
-4. Нажмите ПКМ по блоку.
-5. Если факел можно поставить, он будет установлен обычным способом.
+- Place torches while holding a pickaxe
+- Use torches directly from your inventory
+- Keep your selected hotbar slot unchanged
+- Works in singleplayer and on multiplayer servers
+- Does not require installation on the server
+- Uses normal Minecraft torch placement behavior
 
-Поддерживаются:
+Supported items:
 
-- обычные факелы;
-- факелы душ.
-
----
-
-## Почему это работает на серверах
-
-Picktorch является клиентским модом и не требует установки на сервер.
-
-Мод не создает блоки напрямую и не меняет мир сам. Он только временно подготавливает ваш инвентарь так, чтобы Minecraft выполнил обычное действие установки факела.
-
-С точки зрения сервера это выглядит как стандартное использование факела игроком:
-
-- сервер сам проверяет, можно ли поставить факел;
-- сервер сам решает, разрешено ли действие;
-- приват, spawn protection, античит и другие ограничения продолжают работать;
-- если сервер запрещает установку, Picktorch не может это обойти.
-
-Иными словами, Picktorch не дает новых прав и не ломает серверные правила. Он просто убирает лишнее переключение предметов для действия, которое игрок и так мог выполнить вручную.
+- Torch
+- Soul Torch
 
 ---
 
-## Ограничения
+## How it works
 
-Picktorch работает осторожно и не пытается обходить ограничения сервера.
+Picktorch does not place blocks directly and does not modify the world on its own.
 
-Мод не сработает, если:
+When you right-click a block with a pickaxe, the mod temporarily stages a torch in your main hand, lets Minecraft handle the block interaction normally, and then restores your original held item.
 
-- в руке нет кирки;
-- в инвентаре нет подходящего факела;
-- сервер запрещает установку в выбранном месте;
-- место не подходит для установки факела;
-- игрок находится в режиме, где установка блоков запрещена.
-
-На некоторых серверах со строгими правилами автоматизации использование подобных клиентских удобств может быть ограничено правилами сервера. Перед использованием на публичных серверах лучше убедиться, что такие моды разрешены.
+This means placement is still handled by Minecraft and the server. Block placement rules, protected areas, game mode restrictions, and anti-cheat checks continue to apply.
 
 ---
 
-## Требования
+## Server compatibility
+
+Picktorch is designed to behave like a normal player action. It does not grant extra permissions and cannot bypass server-side restrictions.
+
+If a server would reject a normal torch placement, Picktorch will not force it.
+
+Some public servers may still restrict client-side automation or quality-of-life mods. Please check the server rules before using Picktorch on multiplayer servers.
+
+---
+
+## Requirements
 
 - Fabric Loader
 - Fabric API
-- Java 21 или новее
+- Java 21 or newer
 
 ---
 
-## Лицензия
+## License
 
 MIT
